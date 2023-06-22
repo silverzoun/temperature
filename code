@@ -1,0 +1,24 @@
+function printCurrentTemperature() {
+    /**
+     * This function prints the current temperature.
+     * 
+     * Parameters:
+     * None
+     * 
+     * Returns:
+     * None
+     */
+    
+    try {
+        // Get the current temperature from an API
+        const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY');
+        const data = await response.json();
+        const temperature = data.main.temp;
+        
+        // Print the temperature
+        console.log(`The current temperature is ${temperature} degrees Celsius`);
+    } catch (error) {
+        // Log the error
+        console.error(`Error: ${error}`);
+    }
+}
